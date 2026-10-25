@@ -127,7 +127,7 @@ flash-start = 0x08000000
 [pwrforge]
 console-log-level = "INFO"
 file-log-level = "ERROR"
-update-exclude = ["src/CMakeLists.txt", "config/conan/profiles/stm32_Firmware"]
+update-exclude = ["src/CMakeLists.txt", "config/conan/profiles/stm32_Firmware", "conanfile.py"]
 
 [docker-compose]
 ports = []

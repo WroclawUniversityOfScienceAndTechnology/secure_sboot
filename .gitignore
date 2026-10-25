@@ -4,6 +4,7 @@
 common_dev/scripts/cert/
 .cache/
 build/
+third-party/stm32-cmake/
 out/
 temp/
 __pycache__/

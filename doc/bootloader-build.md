@@ -15,6 +15,11 @@ From the repository root, using the existing pwrforge Docker setup:
 .venv/bin/pwrforge build -p MinSizeRel
 ```
 
+The build downloads `third-party/stm32-cmake` if its toolchain file is missing,
+including when a source archive contains an empty dependency directory.
+`conanfile.py` is maintained locally and excluded from `pwrforge update` to
+preserve this dependency check.
+
 Artifacts are copied by pwrforge to:
 
 ```text
