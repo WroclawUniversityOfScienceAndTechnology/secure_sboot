@@ -1,0 +1,22 @@
+Uploading 9360 bytes from /home/aak/rep/pwr/sboot/sboot/tests/data/firmware_corrupted_1bit.bin
+Upload: commit FW2 page 1 acknowledged
+Upload: commit FW2 page 2 acknowledged
+Upload: commit FW2 page 3 acknowledged
+Upload: commit FW2 page 4 acknowledged
+Upload: commit FW2 page 5 acknowledged
+Upload: commit FW2 page 6 acknowledged
+Upload: commit FW2 page 7 acknowledged
+Upload: commit FW2 page 8 acknowledged
+Upload: commit FW2 page 9 acknowledged
+Upload: commit FW2 page 0 acknowledged
+Transfer complete; requesting activation for bootloader integrity validation
+RX BL START
+RX BL FW2 CHECK INTEGRITY
+RX BL FW1 VALID
+RX BL FW2 INVALID
+RX BL FW2 REJECTED INTEGRITY
+RX BL RETURN FW1
+RX BL FW VERIFIED f40b8a7d08050c0ab14c7359227e6a61
+RX FW 0.0.1 running
+RX FW confirmed
+PASS: corrupted FW2 rejected; returned to running FW1 without swapping

@@ -1,0 +1,48 @@
+# layout (STM32F103C8: 64 KiB flash).
+set(BOOTLOADER_SIZE 0x4000)
+set(NV_SIZE 0x1000)
+set(FW_SIZE 0x5800)
+set(FW_OFFSET 0x200)
+set(NVIC_VECTOR_OFFSET 4)
+set(BOOTLOADER_ADDRESS 0x08000000)
+math(EXPR NVITEMS_ADDRESS "${BOOTLOADER_ADDRESS} + ${BOOTLOADER_SIZE}" OUTPUT_FORMAT HEXADECIMAL)
+math(EXPR FW1_BANK_ADDRESS "${NVITEMS_ADDRESS} + ${NV_SIZE}" OUTPUT_FORMAT HEXADECIMAL)
+math(EXPR FW1_APP_ADDRESS "${FW1_BANK_ADDRESS} + ${FW_OFFSET}" OUTPUT_FORMAT HEXADECIMAL)
+math(EXPR FW2_BANK_ADDRESS "${FW1_BANK_ADDRESS} + ${FW_SIZE}" OUTPUT_FORMAT HEXADECIMAL)
+math(EXPR FW2_APP_ADDRESS "${FW2_BANK_ADDRESS} + ${FW_OFFSET}" OUTPUT_FORMAT HEXADECIMAL)
+foreach(var BOOTLOADER_SIZE NV_SIZE FW_SIZE FW_OFFSET NVIC_VECTOR_OFFSET
+            BOOTLOADER_ADDRESS NVITEMS_ADDRESS FW1_BANK_ADDRESS FW1_APP_ADDRESS
+            FW2_BANK_ADDRESS FW2_APP_ADDRESS)
+    set(${var} "${${var}}" PARENT_SCOPE)
+endforeach()
+
+
+
+cmake_minimum_required(VERSION 3.14)
+
+function(GEN_FW_LINKER_SCRIPT NAME BOOTLOADER_SIZE NV_SIZE FW_SIZE)
+    configure_file("${CMAKE_SOURCE_DIR}/src/gen/memory_map/LinkerScriptFW.ld.in" "LinkerScript.ld")
+endfunction()
+
+function(GEN_LINKER_SCRIPT NAME BOOTLOADER_SIZE NV_SIZE FW_SIZE)
+    configure_file("${CMAKE_SOURCE_DIR}/src/gen/memory_map/LinkerScript.ld.in" "LinkerScript.ld")
+endfunction()
+
+set(INTERNAL_NAME MemoryMap)
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/memory_map.h.in generated/memory_map.h)
+
+add_library(${INTERNAL_NAME}
+    INTERFACE
+)
+
+target_include_directories(${INTERNAL_NAME}
+    INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+)
+
+
+# Both stored images execute from FW1 in single-bank mode.
+set(NAME FW1)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/LinkerScriptFW.ld.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/FirmwareFW1.ld")

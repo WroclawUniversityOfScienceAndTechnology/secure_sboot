@@ -1,0 +1,29 @@
+#pragma once
+
+#define BOOTLOADER_SIZE ${BOOTLOADER_SIZE}
+#define NVITEMS_SIZE ${NV_SIZE}
+#define FW_SIZE ${FW_SIZE}
+
+#define FW_OFFSET ${FW_OFFSET}
+#define NVIC_VECTOR_OFFSET ${NVIC_VECTOR_OFFSET}
+
+#define BOOTLOADER_ADDRESS ${BOOTLOADER_ADDRESS}
+#define NVITEMS_ADDRESS ${NVITEMS_ADDRESS}
+/* Four independently erased pages; shared by bootloader and application. */
+#define NV_JOURNAL_A_ADDRESS (NVITEMS_ADDRESS)
+#define NV_JOURNAL_B_ADDRESS (NVITEMS_ADDRESS + 0x400U)
+#define NV_OLD_PAGE_ADDRESS (NVITEMS_ADDRESS + 0x800U)
+#define NV_NEW_PAGE_ADDRESS (NVITEMS_ADDRESS + 0xC00U)
+#define FW1_BANK_ADDRESS ${FW1_BANK_ADDRESS}
+#define FW1_APP_ADDRESS ${FW1_APP_ADDRESS}
+#define FW2_BANK_ADDRESS ${FW2_BANK_ADDRESS}
+#define FW2_APP_ADDRESS ${FW2_APP_ADDRESS}
+
+extern int __BOOTLOADER_START__;
+extern int __BOOTLOADER_SIZE__;
+extern int __NVITEMS_START__;
+extern int __NVITEMS_SIZE__;
+extern int __FW1_START__;
+extern int __FW1_SIZE__;
+extern int __FW2_START__;
+extern int __FW2_SIZE__;

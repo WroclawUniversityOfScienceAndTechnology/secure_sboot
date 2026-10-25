@@ -1,0 +1,7 @@
+# Maintained here: pwrforge 0.1 does not generate per-profile CMake variables.
+include(stm32_MinSizeRel)
+
+[conf]
+tools.build:cflags=["-Wall -Wextra -Os -g -DNDEBUG"]
+tools.build:cxxflags=["-Wall -Wextra -Os -g -DNDEBUG"]
+tools.cmake.cmaketoolchain:extra_variables={"SBOOT_BUILD_BOOTLOADER": False, "SBOOT_BUILD_FIRMWARE": True, "FIRMWARE_VERSION": "0.0.1", "FIRMWARE_CONFIRM_BOOT": True}

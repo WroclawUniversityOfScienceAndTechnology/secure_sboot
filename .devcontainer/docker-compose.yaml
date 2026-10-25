@@ -1,0 +1,37 @@
+services:
+  bootloader_dev:
+    image: sboot-dev:1.0
+    platform: linux/amd64
+    build:
+      context: .
+      # in case of missing .env file (eg. CI/CD) system will use default values
+      args:
+        GID_NUMBER: ${GID_NUMBER:-1000}
+        UID_NUMBER: ${UID_NUMBER:-1000}
+        DOCKER_IMAGE_ROOT: ${DOCKER_IMAGE_ROOT:-ubuntu:24.04}
+        CONAN_LOGIN_USERNAME: ${CONAN_LOGIN_USERNAME:-""}
+        CONAN_PASSWORD: ${CONAN_PASSWORD:-""}
+    privileged: true
+    group_add:
+      - "4"
+      - "20"
+      - "24"
+      - "27"
+      - "30"
+      - "46"
+      - "100"
+      - "114"
+      - "124"
+      - "984"
+    volumes:
+      - ..:/workspace
+      - /dev:/dev
+      - pwrforge_stm32cube_cache:/home/ubuntu/.cache/pwrforge/stm32cube
+    command: sleep infinity
+    ports:
+      - "3333:3333"
+      - "4444:4444"
+      - "6666:6666"
+volumes:
+  pwrforge_stm32cube_cache:
+    name: pwrforge_stm32cube_cache

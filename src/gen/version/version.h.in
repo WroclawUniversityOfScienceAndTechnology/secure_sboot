@@ -1,0 +1,6 @@
+#pragma once
+
+const char* getVersion() { return "${MAJOR}.${MINOR}.${PATCH}"; }
+unsigned int getVersionMajor() { return ${MAJOR}; }
+unsigned int getVersionMinor() { return ${MINOR}; }
+unsigned int getVersionPatch() { return ${PATCH}; }

@@ -1,0 +1,19 @@
+[settings]
+os=baremetal
+arch=armv7
+compiler=gcc
+compiler.version=9
+compiler.libcxx=libstdc++
+compiler.cppstd=17
+build_type=RelWithDebInfo
+
+[buildenv]
+pwrforge_BUILD_TARGET=stm32
+STM32_CHIP=STM32F103C8T6
+STM32_TOOLCHAIN_PATH=/opt/gcc-arm-none-eabi
+STM32_TARGET_TRIPLET=arm-none-eabi
+
+[conf]
+tools.build:cflags=["-Wall -Wextra -O2 -g -DNDEBUG"]
+tools.build:cxxflags=["-Wall -Wextra -O2 -g -DNDEBUG"]
+tools.cmake.cmaketoolchain:user_toolchain=["{{ os.path.join(profile_dir, "stm32_gcc_toolchain.cmake") }}"]
