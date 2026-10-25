@@ -1,3 +1,4 @@
+name: pwrforge-sboot-bootloader-article_1-0-0-acb1f75487b8
 services:
   bootloader_dev:
     image: sboot-dev:1.0
@@ -13,16 +14,23 @@ services:
         CONAN_PASSWORD: ${CONAN_PASSWORD:-""}
     privileged: true
     group_add:
-      - "4"
-      - "20"
-      - "24"
-      - "27"
-      - "30"
-      - "46"
+      - "12"
+      - "33"
+      - "61"
+      - "79"
+      - "80"
+      - "81"
+      - "98"
       - "100"
-      - "114"
-      - "124"
-      - "984"
+      - "101"
+      - "204"
+      - "250"
+      - "395"
+      - "398"
+      - "399"
+      - "400"
+      - "701"
+      - "999"
     volumes:
       - ..:/workspace
       - /dev:/dev

@@ -13,9 +13,9 @@ class BootloaderConan(ConanFile):  # type: ignore[misc, no-any-unimported]
     name = "bootloader"
     version = "0.1.0"
     license = "MIT"
-    description = "Project description."
+    description = "Secure fail-safe secondary boorloader"
     settings = "os", "compiler", "build_type", "arch"
-    url = "www.hello-world.com"
+    url = "pwrforge.pwr.edu.pl"
     generators = "CMakeToolchain", "CMakeDeps"
     exports_sources = ["src/*", "CMakeLists.txt", "include/*", "config/*"]
 

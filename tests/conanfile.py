@@ -12,7 +12,7 @@ class BootloaderTestConan(ConanFile):  # type: ignore[misc, no-any-unimported]
     version = "0.1.0"
     settings = "os", "compiler", "build_type", "arch"
     description = "Tests for bootloader"
-    url = "www.hello-world.com"
+    url = "pwrforge.pwr.edu.pl"
     generators = "CMakeToolchain", "CMakeDeps"
 
     def build(self) -> None:

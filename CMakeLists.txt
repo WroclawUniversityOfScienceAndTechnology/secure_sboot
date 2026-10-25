@@ -20,8 +20,8 @@ add_definitions(-D${pwrforge_BUILD_TARGET})
 project(
   bootloader
   VERSION 0.1.0
-  DESCRIPTION "Project description."
-  HOMEPAGE_URL "www.hello-world.com"
+  DESCRIPTION "Secure fail-safe secondary boorloader"
+  HOMEPAGE_URL "pwrforge.pwr.edu.pl"
   LANGUAGES C CXX ASM)
 
 

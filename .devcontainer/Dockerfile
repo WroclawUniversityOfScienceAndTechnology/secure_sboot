@@ -84,35 +84,56 @@ RUN printf "\n\nCONFIGURING USER $DEV_USER - DEV ENV ONLY!\n\n" >&2 && \
     echo "$DEV_USER ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/90-$DEV_USER" && \
     chmod 0440 "/etc/sudoers.d/90-$DEV_USER" && \
     passwd -d "$DEV_USER" || true
-RUN if ! getent group "4" >/dev/null; then \
-        groupadd -g "4" "hostgrp_4"; \
+RUN if ! getent group "12" >/dev/null; then \
+        groupadd -g "12" "hostgrp_12"; \
     fi
-RUN if ! getent group "20" >/dev/null; then \
-        groupadd -g "20" "hostgrp_20"; \
+RUN if ! getent group "33" >/dev/null; then \
+        groupadd -g "33" "hostgrp_33"; \
     fi
-RUN if ! getent group "24" >/dev/null; then \
-        groupadd -g "24" "hostgrp_24"; \
+RUN if ! getent group "61" >/dev/null; then \
+        groupadd -g "61" "hostgrp_61"; \
     fi
-RUN if ! getent group "27" >/dev/null; then \
-        groupadd -g "27" "hostgrp_27"; \
+RUN if ! getent group "79" >/dev/null; then \
+        groupadd -g "79" "hostgrp_79"; \
     fi
-RUN if ! getent group "30" >/dev/null; then \
-        groupadd -g "30" "hostgrp_30"; \
+RUN if ! getent group "80" >/dev/null; then \
+        groupadd -g "80" "hostgrp_80"; \
     fi
-RUN if ! getent group "46" >/dev/null; then \
-        groupadd -g "46" "hostgrp_46"; \
+RUN if ! getent group "81" >/dev/null; then \
+        groupadd -g "81" "hostgrp_81"; \
+    fi
+RUN if ! getent group "98" >/dev/null; then \
+        groupadd -g "98" "hostgrp_98"; \
     fi
 RUN if ! getent group "100" >/dev/null; then \
         groupadd -g "100" "hostgrp_100"; \
     fi
-RUN if ! getent group "114" >/dev/null; then \
-        groupadd -g "114" "hostgrp_114"; \
+RUN if ! getent group "101" >/dev/null; then \
+        groupadd -g "101" "hostgrp_101"; \
     fi
-RUN if ! getent group "124" >/dev/null; then \
-        groupadd -g "124" "hostgrp_124"; \
+RUN if ! getent group "204" >/dev/null; then \
+        groupadd -g "204" "hostgrp_204"; \
     fi
-RUN if ! getent group "984" >/dev/null; then \
-        groupadd -g "984" "hostgrp_984"; \
+RUN if ! getent group "250" >/dev/null; then \
+        groupadd -g "250" "hostgrp_250"; \
+    fi
+RUN if ! getent group "395" >/dev/null; then \
+        groupadd -g "395" "hostgrp_395"; \
+    fi
+RUN if ! getent group "398" >/dev/null; then \
+        groupadd -g "398" "hostgrp_398"; \
+    fi
+RUN if ! getent group "399" >/dev/null; then \
+        groupadd -g "399" "hostgrp_399"; \
+    fi
+RUN if ! getent group "400" >/dev/null; then \
+        groupadd -g "400" "hostgrp_400"; \
+    fi
+RUN if ! getent group "701" >/dev/null; then \
+        groupadd -g "701" "hostgrp_701"; \
+    fi
+RUN if ! getent group "999" >/dev/null; then \
+        groupadd -g "999" "hostgrp_999"; \
     fi
 
 COPY requirements.txt requirements.txt

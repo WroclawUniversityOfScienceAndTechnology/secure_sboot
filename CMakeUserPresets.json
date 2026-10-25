@@ -4,7 +4,6 @@
         "conan": {}
     },
     "include": [
-        "build/stm32/Debug/build/Debug/generators/CMakePresets.json",
-        "build/stm32/Firmware/build/MinSizeRel/generators/CMakePresets.json"
+        "build/stm32/Debug/build/Debug/generators/CMakePresets.json"
     ]
 }

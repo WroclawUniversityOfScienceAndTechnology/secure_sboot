@@ -1,8 +1,8 @@
 [project]
 name = "bootloader"
 version = "0.1.0"
-description = "Project description."
-homepage-url = "www.hello-world.com"
+description = "Secure fail-safe secondary boorloader"
+homepage-url = "pwrforge.pwr.edu.pl"
 
 bin_name = "bootloader"
 target = ["stm32"]
@@ -128,7 +128,7 @@ flash-start = 0x08000000
 console-log-level = "INFO"
 file-log-level = "ERROR"
 update-exclude = ["src/CMakeLists.txt", "config/conan/profiles/stm32_Firmware"]
-version = "0.1.0"
+version = "0.1.1"
 
 [docker-compose]
 ports = []
